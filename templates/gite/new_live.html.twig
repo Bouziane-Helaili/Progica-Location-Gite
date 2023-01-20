@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="col-6 m-5 m-auto py-5">
+    {{ component('gite_form', {
+        gite: gite.id  ? gite : null,
+        form: form
+    }) }}
+</div>
+{% endblock %}
+
+{% block title %} Ajout Gite
+
+{% endblock %}
+
