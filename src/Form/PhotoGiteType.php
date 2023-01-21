@@ -17,7 +17,7 @@ class PhotoGiteType extends AbstractType
             ->add('imageFile', VichImageType::class, [
                 'label' => "Ajouter une photo"
             ])
-            ->add('isMain', CheckboxType::class, [
+            ->add('isMain',CheckboxType::class, [
                 'label' => 'Photo principale'
             ])
            

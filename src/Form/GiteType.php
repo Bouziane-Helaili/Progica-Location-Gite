@@ -14,6 +14,7 @@ use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -40,7 +41,9 @@ class GiteType extends AbstractType
             ->add('title', TextType::class, [
                 'label' => "Nom du gite"
             ])
-            ->add('surface')
+            ->add('surface', NumberType::class, [
+                'label' => 'Surface du chambre'
+            ])
             ->add('nbrRoom', NumberType::class, [
                 'label' => 'Nombre de chambre'
             ])
@@ -50,18 +53,15 @@ class GiteType extends AbstractType
             ->add('isAnimalAllowed', CheckboxType::class, [
                 'label' => 'Animaux autorisés ?'
             ])
-
             ->add('animalPrice', NumberType::class, [
                 'label' => 'Si oui, prix en supplément animal'
             ])
-
-            ->add('description', TextType::class, [
+            ->add('description', TextareaType::class, [
                 'label' => "Description du gite"
             ])
 
             ->add('contact', EntityType::class, [
                 'class' => User::class,
-                'label' => 'Si vous ne voulez pas être contacté directement, veuillez choisir un contact déjà enregistré',
                 'query_builder' => function (UserRepository $er) use ($current_user) {
                     return $er->createQueryBuilder('u')
                         ->andWhere('u.owner = :id_user')
@@ -70,12 +70,10 @@ class GiteType extends AbstractType
             ])
             ->add('equipementExts', EntityType::class, [
                 'class' => EquipementExt::class,
-                'label' => "Les équipements extérieurs",
                 'expanded' => true,
                 'multiple' => true
             ])
             ->add('EquipementInts', EntityType::class, [
-                'label' => "Les équipement intérieurs",
                 'class' => EquipementInt::class,
                 'expanded' => true,
                 'multiple' => true

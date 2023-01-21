@@ -4,8 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Gite;
 use App\Entity\GiteService;
-use App\Entity\Periode;
 use App\Entity\Photo;
+use App\Entity\Periode;
 use App\Form\GiteType;
 use App\Repository\GiteRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -46,6 +46,8 @@ class GiteController extends AbstractController
         $gite->addGiteService($giteService);
         $photo = new Photo();
         $gite->addPhoto($photo);
+        $periode = new Periode();
+        $gite->addPeriode($periode);
 
         $form = $this->createForm(GiteType::class, $gite);
         $form->handleRequest($request);

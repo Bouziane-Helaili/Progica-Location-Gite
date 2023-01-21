@@ -14,23 +14,13 @@ class Periode
     #[ORM\Column]
     private ?int $id = null;
 
-
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $startAt = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $endAt = null;
 
-    #[ORM\Column]
-
-//     #[ORM\Column(nullable: true)]
-//     private ?\DateTimeImmutable $startAt = null;
-
-//     #[ORM\Column(nullable: true)]
-//     private ?\DateTimeImmutable $endAt = null;
-
-//     #[ORM\Column(nullable: true)]
-// >>>>>>> 9606e7dbb9cff0d499ad0cbda906d6a0151ad864
+    #[ORM\Column(nullable: true)]
     private ?float $price = null;
 
     #[ORM\ManyToOne(inversedBy: 'periodes')]
@@ -41,35 +31,24 @@ class Periode
         return $this->id;
     }
 
-
     public function getStartAt(): ?\DateTimeInterface
-    // public function getStartAt(): ?\DateTimeImmutable
-
     {
         return $this->startAt;
     }
 
-    public function setStartAt(\DateTimeInterface $startAt): self
-    // public function setStartAt(?\DateTimeImmutable $startAt): self
-
+    public function setStartAt(?\DateTimeInterface $startAt): self
     {
         $this->startAt = $startAt;
 
         return $this;
     }
 
-
     public function getEndAt(): ?\DateTimeInterface
-    // public function getEndAt(): ?\DateTimeImmutable
-
     {
         return $this->endAt;
     }
 
-
-    public function setEndAt(\DateTimeInterface $endAt): self
-    // public function setEndAt(?\DateTimeImmutable $endAt): self
-
+    public function setEndAt(?\DateTimeInterface $endAt): self
     {
         $this->endAt = $endAt;
 
@@ -81,9 +60,7 @@ class Periode
         return $this->price;
     }
 
-
-    public function setPrice(float $price): self
-
+    public function setPrice(?float $price): self
     {
         $this->price = $price;
 
