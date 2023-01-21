@@ -24,9 +24,15 @@
 						<div
 							class="card h-100">
 							<!-- Product image-->
+						
 							{% for gitePhoto in gite.photos %}
+							{% if loop.first == true %}
+							
 								<img class="card-img-top" src="{{ vich_uploader_asset(gitePhoto, 'imageFile') }}" alt="{{ gitePhoto.imageName }}"/>
+							{% endif %}
 							{% endfor %}
+
+
 							<!-- Product details-->
 							<div class="card-body p-4">
 								<div
