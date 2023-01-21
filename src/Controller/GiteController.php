@@ -22,6 +22,7 @@ class GiteController extends AbstractController
     {
         return $this->render('gite/index.html.twig', [
             'gites' => $giteRepository->findAll(),
+            
         ]);
     }
 
