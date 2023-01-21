@@ -21,7 +21,7 @@
 	<h5>Photos :</h5>
 	{% for key, photoForm in form.photos %}
 		{{ form_widget(photoForm) }}
-		<button data-action="live#action" data-action-name="removePhoto(index={{ key }})" type="button"  class="btn btn-danger">supprimer l'ajout de photo</button>
+		<button data-action="live#action" data-action-name="removePhoto(index={{ key }})" type="button"  class="btn btn-danger">Supprimer l'ajout de photo</button>
 	{% endfor %}
 	<button data-action="live#action" data-action-name="addPhoto" type="button" class="btn btn-primary">Ajouter une photo supplémentaire</button><br>
 	<hr>
