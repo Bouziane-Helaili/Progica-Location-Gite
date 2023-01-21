@@ -56,11 +56,8 @@ class Gite
     #[ORM\OneToMany(mappedBy: 'gite', targetEntity: GiteService::class, cascade: ['persist'], orphanRemoval: true)]
     private Collection $giteServices;
 
-<<<<<<< HEAD
+
     #[ORM\OneToMany(mappedBy: 'gite', targetEntity: Periode::class, cascade: ['persist'])]
-=======
-    #[ORM\OneToMany(mappedBy: 'gite', targetEntity: Periode::class)]
->>>>>>> 9606e7dbb9cff0d499ad0cbda906d6a0151ad864
     private Collection $periodes;
 
     public function __construct()

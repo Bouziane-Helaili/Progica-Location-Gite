@@ -61,8 +61,5 @@ class GiteFormComponent extends AbstractController
     {
         unset($this->formValues['periodes'][$index]);
     }
-<<<<<<< HEAD
 
-=======
->>>>>>> 9606e7dbb9cff0d499ad0cbda906d6a0151ad864
 }
