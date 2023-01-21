@@ -53,12 +53,12 @@ class GiteFormComponent extends AbstractController
     #[LiveAction]
     public function addPeriode()
     {
-        $this->formValues['photos'][] = [];
+        $this->formValues['periodes'][] = [];
     }
     
     #[LiveAction]
     public function removePeriode(#[LiveArg] int $index)
     {
-        unset($this->formValues['photos'][$index]);
+        unset($this->formValues['periodes'][$index]);
     }
 }

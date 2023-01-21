@@ -28,7 +28,7 @@
 	<h5>Periodes :</h5>
 	{% for key, periodeForm in form.periodes %}
 		{{ form_widget(periodeForm) }}
-		<button data-action="live#action" data-action-name="removePeriode(index={{ key }})" type="button"  class="btn btn-danger">supprimer l'ajout d'une période</button>
+		<button data-action="live#action" data-action-name="removePeriode(index={{ key }})" type="button"  class="btn btn-danger">Supprimer l'ajout d'une période</button>
 	{% endfor %}
 	<button data-action="live#action" data-action-name="addPeriode" type="button" class="btn btn-primary">Ajouter une période supplémentaire</button><br>
 <hr>
