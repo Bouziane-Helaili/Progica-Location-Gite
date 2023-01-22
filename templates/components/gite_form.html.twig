@@ -1,4 +1,7 @@
-<div{{attributes}} class="card text-white bg-dark bg-gradient container pt-4 px-5">
+<div{{attributes}} class="card text-white bg-dark container p-3">
+
+<div  class="text-white border border-light p-5 m-3 rounded-4">
+<h2 class="my-3 text-center">Informations</h2>
 	{{ form_start(form) }}
 	{{ form_row(form.title) }}
 	{{ form_row(form.surface) }}
@@ -10,30 +13,42 @@
 	{{ form_row(form.EquipementInts) }}
 	{{ form_row(form.equipementExts) }}
 	{{ form_row(form.contact) }}
-	<hr>	
-	<h5>Services :</h5>
+	</div>
+
+<div class="text-white border border-light p-5 m-3 rounded-4">
+	<h2 class="my-3 text-center">Services</h2>
 	{% for key, giteServiceForm in form.giteServices %}
 		{{ form_widget(giteServiceForm) }}
-		<button data-action="live#action" data-action-name="removeGiteService(index={{ key }})" type="button"  class="btn btn-danger">Supprimer l'ajout de service</button>
+		<button data-action="live#action" data-action-name="removeGiteService(index={{ key }})" type="button" class="btn btn-sm btn-danger">Supprimer</button>
 	{% endfor %}
-	<button data-action="live#action" data-action-name="addGiteService" type="button" class="btn btn-primary">Ajouter un service supplémentaire</button>
-<hr>
-	<h5>Photos :</h5>
+	<button data-action="live#action" data-action-name="addGiteService" type="button" class="btn btn-sm btn-primary">Ajouter</button>
+	</div>
+
+	<div class="text-white border border-light p-5 m-3 rounded-4">
+	<h2 class="my-3 text-center">Photos</h2>
 	{% for key, photoForm in form.photos %}
+		{% if loop.first == true %}
+			<div class="text-center">Photo Principale</div>
+		{% else %}
+			<div class="text-center mt-5">Photo Secondaire</div>
+		{% endif %}
 		{{ form_widget(photoForm) }}
-		<button data-action="live#action" data-action-name="removePhoto(index={{ key }})" type="button"  class="btn btn-danger">Supprimer l'ajout de photo</button>
+		<button data-action="live#action" data-action-name="removePhoto(index={{ key }})" type="button" class="btn btn-sm btn-danger">Supprimer</button>
 	{% endfor %}
-	<button data-action="live#action" data-action-name="addPhoto" type="button" class="btn btn-primary">Ajouter une photo supplémentaire</button><br>
-	<hr>
-	<h5>Periodes :</h5>
+	<button data-action="live#action" data-action-name="addPhoto" type="button" class="btn btn-sm btn-primary">Ajouter</button><br>
+	</div>
+
+	<div class="text-white border border-light p-5 m-3 rounded-4">
+	<h2 class="my-3 text-center">Periodes</h2>
 	{% for key, periodeForm in form.periodes %}
 		{{ form_widget(periodeForm) }}
-		<button data-action="live#action" data-action-name="removePeriode(index={{ key }})" type="button"  class="btn btn-danger">Supprimer l'ajout d'une période</button>
+		<button data-action="live#action" data-action-name="removePeriode(index={{ key }})" type="button" class="btn btn-sm btn-danger">Supprimer</button>
 	{% endfor %}
-	<button data-action="live#action" data-action-name="addPeriode" type="button" class="btn btn-primary">Ajouter une période supplémentaire</button><br>
-<hr>
-	<div class="my-5">
-	<button type="submit" class="btn btn-success">Enregistrer</button>
-</div>
+	<button data-action="live#action" data-action-name="addPeriode" type="button" class="btn btn-sm btn-primary">Ajouter</button><br>
+	</div>
+
+		
+		<button type="submit" class="text-center btn btn-outline-light mt-3">Enregistrer</button>
+	
 	{{ form_end(form) }}
 </div>

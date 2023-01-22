@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\GiteRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -51,6 +52,7 @@ class Gite
     private Collection $EquipementInts;
 
     #[ORM\OneToMany(mappedBy: 'gite', targetEntity: Photo::class, cascade: ['persist'], orphanRemoval: true)]
+    #[Vich\UploadableField(mapping: 'gite', fileNameProperty: 'imageName', size: 'imageSize')]
     private Collection $photos;
 
     #[ORM\OneToMany(mappedBy: 'gite', targetEntity: GiteService::class, cascade: ['persist'], orphanRemoval: true)]

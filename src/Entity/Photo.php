@@ -16,9 +16,6 @@ class Photo
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
-    private ?bool $isMain = null;
-
     #[ORM\ManyToOne(inversedBy: 'photos')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Gite $gite = null;
@@ -86,17 +83,6 @@ class Photo
         return $this->id;
     }
 
-    public function isIsMain(): ?bool
-    {
-        return $this->isMain;
-    }
-
-    public function setIsMain(bool $isMain): self
-    {
-        $this->isMain = $isMain;
-
-        return $this;
-    }
 
     public function getGite(): ?Gite
     {
