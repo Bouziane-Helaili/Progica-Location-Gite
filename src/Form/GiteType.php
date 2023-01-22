@@ -42,7 +42,7 @@ class GiteType extends AbstractType
                 'label' => "Nom du gite"
             ])
             ->add('surface', NumberType::class, [
-                'label' => 'Surface du chambre'
+                'label' => 'Surface du gite'
             ])
             ->add('nbrRoom', NumberType::class, [
                 'label' => 'Nombre de chambre'
